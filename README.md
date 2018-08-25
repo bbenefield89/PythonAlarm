@@ -1,24 +1,10 @@
 <div align="center">
-<h1>python-alarm</h1>
+<h1>Pylarm</h1>
 
 <p>A CLI to set alarms</p>
 </div>
 
 <hr />
-
-[![Build Status][build-badge]][build]
-[![Code Coverage][coverage-badge]][coverage]
-[![version][version-badge]][package]
-[![downloads][downloads-badge]][npmtrends]
-[![MIT License][license-badge]][license]
-
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
-[![PRs Welcome][prs-badge]][prs]
-[![Code of Conduct][coc-badge]][coc]
-
-[![Watch on GitHub][github-watch-badge]][github-watch]
-[![Star on GitHub][github-star-badge]][github-star]
-[![Tweet][twitter-badge]][twitter]
 
 ## The problem
 
@@ -44,12 +30,7 @@
 
 ## Installation
 
-This module is distributed via [npm][npm] which is bundled with [node][node] and
-should be installed as one of your project's `dependencies`:
-
-```
-npm install --save python-alarm
-```
+// TODO
 
 ## Usage
 
