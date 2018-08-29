@@ -10,7 +10,23 @@ from helpers.call_notification import call_notification
 from helpers.manually_set_alarm import manually_set_alarm
 from helpers.does_user_agree import does_user_agree
 
+
 def pylarm():
+    '''
+    @summary    Function containing main logic for Pylarm
+
+    @desc       User inputs a specific time, e.g. 10:45, and the Pylarm will determine the nearest
+                possible time within ~24hours that the alarm can be set to. If Pylarm can not find
+                a time with ~24hours that is when the helper function, manually_set_alarm(), will
+                be called and the user is given the option to enter a date and time to set the
+                alarm in the format of "MM DD YYYY HH:MM(am/pm)", e.g. "08 03 2019 10:45pm"
+
+    @author     Brandon Benefield
+    @since      v1.0.0
+
+    @param      {void}
+    @return     {void}
+    '''
     alarm_time   = input('\nWhat time: ')
     curr_time    = time.localtime()
     # alarm will attempt to set this for AM
