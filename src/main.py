@@ -21,12 +21,10 @@ if __name__ == '__main__':
     p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2]} {curr_time[0]} {alarm_time}am', '%m %d %Y %I:%M%p')
     mk_time      = time.mktime(p_alarm_time)
     
-    
     if int(mk_time * 1000) <= int(time.time() * 1000):
         # use the same values but for PM
         p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2]} {curr_time[0]} {alarm_time}pm', '%m %d %Y %I:%M%p')
         mk_time      = time.mktime(p_alarm_time)
-
 
         if int(mk_time * 1000) <= int(time.time() * 1000):
             # use the original values in the AM but for the next day: curr_time[2] + 1
@@ -42,7 +40,5 @@ if __name__ == '__main__':
         # e.g. August 25 2018 4:40pm
         else:
             does_user_agree(mk_time)
-
-            
     else:
         does_user_agree(mk_time)
