@@ -1,13 +1,8 @@
 # py modules
-import subprocess
 import time
 
-
 # custom modules
-from helpers.check_if_correct import check_if_correct
 from helpers.set_alarm import set_alarm
-from helpers.call_notification import call_notification
-from helpers.manually_set_alarm import manually_set_alarm
 from helpers.does_user_agree import does_user_agree
 
 
