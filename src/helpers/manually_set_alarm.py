@@ -1,6 +1,6 @@
 import time
 
-from .set_alarm import set_alarm
+from .check_alarm import check_alarm
 from .call_notification import call_notification
 
 ##
@@ -30,5 +30,5 @@ def manually_set_alarm():
     seconds_until_alarm = int(mk_time * 1) - int(time.time() * 1)
 
     print(f'\nThe alarm has been set and will go off at {time.ctime(mk_time)}\n')
-    set_alarm(seconds_until_alarm)
+    check_alarm(seconds_until_alarm)
     call_notification()
