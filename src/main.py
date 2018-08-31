@@ -5,6 +5,7 @@ if __name__ == '__main__':
     from pylarm import pylarm
     
     
+    # opens and converts `cli_options.json` into a dictionary
     with open('./src/cli_options.json') as data:
         arguments = json.load(data)
 
