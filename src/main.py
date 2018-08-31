@@ -11,17 +11,21 @@ if __name__ == '__main__':
         arguments = json.load(data)
 
 
-    if len(sys.argv) == 1:
+    argv_len = len(sys.argv)
+
+    if argv_len == 1:
         pylarm()
         
-    elif len(sys.argv) == 2:
+    elif argv_len == 2:
         try:
             print(arguments[ '2' ][ sys.argv[1] ][ 'info' ])
-        except:
+            
+        except KeyError:
             print_cli_options_error(sys.argv)
             
-    elif len(sys.argv) == 3:
+    elif argv_len == 3:
         try:
             print(arguments[ '3' ][ sys.argv[2] ][ sys.argv[1] ][ 'info' ])
-        except:
+            
+        except KeyError:
             print_cli_options_error(sys.argv)
