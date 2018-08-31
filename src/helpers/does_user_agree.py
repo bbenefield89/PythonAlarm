@@ -1,7 +1,7 @@
 import time
 
 from .check_if_correct import check_if_correct
-from .set_alarm import set_alarm
+from .check_alarm import check_alarm
 from .manually_set_alarm import manually_set_alarm
 
 
@@ -26,6 +26,6 @@ def does_user_agree(seconds):
 
     if alarm_accepted == 'y':
         print(f'\nThe alarm has been set and will go off at {time.ctime(seconds)}\n')
-        set_alarm(seconds)
+        check_alarm(seconds)
     elif alarm_accepted == 'n':
         manually_set_alarm()

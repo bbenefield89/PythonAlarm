@@ -4,9 +4,9 @@ import time
 from .call_notification import call_notification
 
 ##
-# set_alarm
+# check_alarm
 #
-def set_alarm(seconds):
+def check_alarm(seconds):
     '''
     @summary    calls time.sleep()
 

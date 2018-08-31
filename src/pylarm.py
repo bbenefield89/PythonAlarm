@@ -2,7 +2,6 @@
 import time
 
 # custom modules
-from helpers.set_alarm import set_alarm
 from helpers.does_user_agree import does_user_agree
 
 
