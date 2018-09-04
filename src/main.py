@@ -1,13 +1,16 @@
 if __name__ == '__main__':
-    import sys
     import json
+    import os
+    import sys
     
-    from pylarm import pylarm
     from helpers.print_cli_options_error import print_cli_options_error
+    from pylarm import pylarm
     
     
     # opens and converts `cli_options.json` into a dictionary
-    with open('./src/cli_options.json') as data:
+    cli_options_file_path = os.path.dirname(sys.argv[0]) + '/cli_options.json'
+    
+    with open(cli_options_file_path) as data:
         arguments = json.load(data)
 
 
