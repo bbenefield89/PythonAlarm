@@ -1,32 +1,34 @@
 if __name__ == '__main__':
-    import sys
     import json
+    import os
+    import sys
     
+    from helpers.print_cli_options_error import print_cli_options_error
     from pylarm import pylarm
     
     
-    with open('./src/cli_options.json') as data:
+    # opens and converts `cli_options.json` into a dictionary
+    cli_options_file_path = os.path.dirname(sys.argv[0]) + '/cli_options.json'
+    
+    with open(cli_options_file_path) as data:
         arguments = json.load(data)
 
 
-    def print_cli_options_error(cli_args):
-        if len(cli_args) == 2:
-            print(f'\npylarm: option {cli_args[1]}: unexpected option')
-            print('\npylarm: try \'pylarm --help\' or \'pylarm --manual\' for more information\n')
-        elif len(cli_args) == 3:
-            print(f'\npylarm: option {cli_args[1]} {cli_args[2]}: unexpected options')
-            print('\npylarm: try \'pylarm --help\' or \'pylarm --manual\' for more information\n')
+    argv_len = len(sys.argv)
 
-
-    if len(sys.argv) == 1:
+    if argv_len == 1:
         pylarm()
-    elif len(sys.argv) == 2:
-        if hasattr(arguments[ '2' ], sys.argv[1]) == False:
-            print_cli_options_error(sys.argv)
-        else:
+        
+    elif argv_len == 2:
+        try:
             print(arguments[ '2' ][ sys.argv[1] ][ 'info' ])
-    elif len(sys.argv) == 3:
+            
+        except KeyError:
+            print_cli_options_error(sys.argv)
+            
+    elif argv_len == 3:
         try:
             print(arguments[ '3' ][ sys.argv[2] ][ sys.argv[1] ][ 'info' ])
-        except:
+            
+        except KeyError:
             print_cli_options_error(sys.argv)
