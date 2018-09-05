@@ -1,3 +1,4 @@
+import platform
 import subprocess
 
 ##
@@ -17,7 +18,15 @@ def call_notification():
     @param      {void}
     @return     {void}
     '''
-    # calls the `notify-send` system call
-    subprocess.run(['notify-send', 'Pylarm Alarm'])
-    # plays .oga sound
-    subprocess.run(['paplay', '/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga'])
+
+    if platform.system() == 'Linux':    
+        # calls the `notify-send` system call
+        subprocess.run(['notify-send', 'Pylarm Alarm'])
+        # plays .oga sound
+        subprocess.run(['paplay', '/usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga'])
+    
+    elif platform.system() == 'Windows':
+        print('\n\nNEED SUPPORT FOR WINDOWS\n\n')
+
+    else:
+        print('\n\nNEED SUPPORT FOR MAC\n\n')
