@@ -33,9 +33,21 @@ def pylarm(path):
         mk_time      = time.mktime(p_alarm_time)
 
         if int(mk_time * 1000) <= int(time.time() * 1000):
-            # use the original values in the AM but for the next day: curr_time[2] + 1
-            p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2] + 1} {curr_time[0]} {alarm_time}pm', '%m %d %Y %I:%M%p')
-            mk_time      = time.mktime(p_alarm_time)
+            '''
+            an error occurs at the end of each month where Pylarm attempts to set the day, curr_time[2], to a day
+            that doesnt exist in that month, e.g. January 32
+            this try/except will catch that error and increase the month by 1 and reset the day to 1
+            i.e. January 32 => February 1
+            '''
+            try:
+                # use the original values in the AM but for the next day: curr_time[2] + 1
+                p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2] + 1} {curr_time[0]} {alarm_time}pm', '%m %d %Y %I:%M%p')
+
+            except:
+                p_alarm_time = time.strptime(f'{curr_time[1] + 1} 01 {curr_time[0]} {alarm_time}pm', '%m %d %Y %I:%M%p')
+
+            
+            mk_time = time.mktime(p_alarm_time)
 
             print(f'\nThe alarm is set to go off at {time.ctime(mk_time)}\n\n')
 
