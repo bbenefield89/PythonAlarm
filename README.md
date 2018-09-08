@@ -39,8 +39,8 @@ After downloading this module you can choose to either run this manually everyti
 
 After starting up this module you will be prompted with a message `What time: `. Just input your time **without** a meridiem, A.M. or P.M., and let Pylarm do its job.
 
-**Example**:
-`$ python <path>/PythonAlarm/src/main.py`
+**Example**:  
+`$ python <path>/PythonAlarm/src/main.py`  
 `What time: 3:30`
 
 <div style="display: none">
