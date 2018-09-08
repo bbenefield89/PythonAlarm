@@ -17,7 +17,8 @@ if __name__ == '__main__':
     argv_len = len(sys.argv)
 
     if argv_len == 1:
-        pylarm()
+        src_path = os.path.dirname(os.path.realpath(__file__))
+        pylarm(src_path)
         
     elif argv_len == 2:
         try:

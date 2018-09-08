@@ -6,7 +6,7 @@ import sys
 ##
 # call_notification
 #
-def call_notification():
+def call_notification(path):
     '''
     @summary    Run OS subprocesses
 
@@ -22,8 +22,7 @@ def call_notification():
     '''
 
     if platform.system() == 'Linux':    
-        src_path         = os.path.dirname(sys.modules['__main__'].__file__)
-        alarm_sound_path = src_path + '/sounds/alarm-clock-elapsed.oga'
+        alarm_sound_path = path + '/sounds/alarm-clock-elapsed.oga'
         
         # calls the `notify-send` system call
         subprocess.run(['notify-send', 'Pylarm Alarm'])
