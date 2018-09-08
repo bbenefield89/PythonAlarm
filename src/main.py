@@ -8,7 +8,7 @@ if __name__ == '__main__':
     
     
     # opens and converts `cli_options.json` into a dictionary
-    cli_options_file_path = os.path.dirname(sys.argv[0]) + '/cli_options.json'
+    cli_options_file_path = os.path.dirname(os.path.realpath(__file__)) + '/cli_options.json'
     
     with open(cli_options_file_path) as data:
         arguments = json.load(data)
