@@ -31,7 +31,7 @@ With easy commands right at your finger tips `Pylarm` aims to cure you of overco
 ## Installation
 This module is not distributed on any package manager and therefore must currently be installed directly via GitHub. You can either download the ZIP file or in your terminal run
 
-**SSH**: `git clone git@github.com:bbenefield89/PythonAlarm.git`
+**SSH**: `git clone git@github.com:bbenefield89/PythonAlarm.git`  
 **HTTPS**: `git clone https://github.com/bbenefield89/PythonAlarm.git`
 
 ## Usage
