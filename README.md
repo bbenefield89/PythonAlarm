@@ -6,6 +6,10 @@
 
 <hr />
 
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
+[![Python 3.6, 3.7](https://img.shields.io/badge/Python-3.7-blue.svg)](https://www.python.org/)
+
 ## The problem
 `Pylarm` is the definitetion of "set it and forget it".
 
@@ -51,12 +55,8 @@ After starting up this module you will be prompted with a message `What time: `.
 My own inability to remember to set alarms for *ANYTHING*, also all the overcooked rice in my life.
 
 ## Contributors
-<div style="display: inline-block">
-  <a href="https://github.com/bbenefield89">
-    <img style="text-align: center; display: block; margin: 0 auto;" width=100 src="https://avatars0.githubusercontent.com/u/29239201?v=4">
-    <p>Brandon Benefield</p>
-  </a>
-</div>
+| [<img src="https://avatars0.githubusercontent.com/u/29239201?v=4" align="center" width=100><br><b>Brandon Benefield</b> ](https://github.com/bbenefield89) |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 
 ## LICENSE
 MIT
