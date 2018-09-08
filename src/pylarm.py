@@ -5,7 +5,7 @@ import time
 from helpers.does_user_agree import does_user_agree
 
 
-def pylarm():
+def pylarm(path):
     '''
     @summary    Function containing main logic for Pylarm
 
@@ -39,12 +39,12 @@ def pylarm():
 
             print(f'\nThe alarm is set to go off at {time.ctime(mk_time)}\n\n')
 
-            does_user_agree(mk_time)
+            does_user_agree(mk_time, path)
 
         # if setting alarm to PM allowed
         # check if user is okay with this time
         # e.g. August 25 2018 4:40pm
         else:
-            does_user_agree(mk_time)
+            does_user_agree(mk_time, path)
     else:
-        does_user_agree(mk_time)
+        does_user_agree(mk_time, path)
