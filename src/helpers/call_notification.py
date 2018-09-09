@@ -21,16 +21,19 @@ def call_notification(path):
     @return     {void}
     '''
 
-    if platform.system() == 'Linux':    
+    if platform.system() == 'Linux':
         alarm_sound_path = path + '/sounds/alarm-clock-elapsed.oga'
-        
+
         # calls the `notify-send` system call
         subprocess.run(['notify-send', 'Pylarm Alarm'])
         # plays .oga sound
         subprocess.run(['paplay', alarm_sound_path])
-    
+
     elif platform.system() == 'Windows':
         print('\n\nNEED SUPPORT FOR WINDOWS\n\n')
 
-    else:
+    elif platform.system() == 'Darwin':
         print('\n\nNEED SUPPORT FOR MAC\n\n')
+
+    else:
+        print('\n\nUNSUPPORTED OPERTING SYSTEM\n\n')
