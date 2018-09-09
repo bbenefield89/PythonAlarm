@@ -6,9 +6,7 @@
 
 <hr />
 
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-
-[![Python 3.6, 3.7](https://img.shields.io/badge/Python-3.7-blue.svg)](https://www.python.org/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![Python 3.6, 3.7](https://img.shields.io/badge/Python-3.7-blue.svg)](https://www.python.org/)
 
 ## The problem
 `Pylarm` is the definitetion of "set it and forget it".
