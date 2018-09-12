@@ -13,9 +13,8 @@ def check_if_correct():
     @param      {void}
     @return     {void}
     '''
-    acceptable = False
-    while not acceptable:
-        alarm_accepted = input('Is this correct [Y/N]: ').lower()
+    while True:
+        alarm_accepted = input('Is this correct [Y/N]: ')[:1].lower()
 
         if alarm_accepted == 'y' or alarm_accepted == 'n':
             return alarm_accepted
