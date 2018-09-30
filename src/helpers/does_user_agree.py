@@ -8,7 +8,7 @@ from .manually_set_alarm import manually_set_alarm
 ##
 # does_user_agree
 #
-def does_user_agree(mk_time, path):
+def does_user_agree(alarm_time):
     '''
     @summary    Checks if user input time is correct
 
@@ -22,13 +22,13 @@ def does_user_agree(mk_time, path):
     @return     {void}
     '''
 
-    mk_time = time.mktime(mk_time)
-    print(f'\nThe alarm is set to go off at {time.ctime(mk_time)}\n')
+    alarm_time = time.mktime(alarm_time)
+    print(f'\nThe alarm is set to go off at {time.ctime(alarm_time)}\n')
 
     alarm_accepted = check_if_correct()
 
     if alarm_accepted == 'y':
-        print(f'\nThe alarm has been set and will go off at {time.ctime(mk_time)}\n')
-        check_alarm(mk_time, path)
+        print(f'\nThe alarm has been set and will go off at {time.ctime(alarm_time)}\n')
+        check_alarm(alarm_time)
     elif alarm_accepted == 'n':
         manually_set_alarm()

@@ -7,7 +7,7 @@ from .call_notification import call_notification
 ##
 # check_alarm
 #
-def check_alarm(seconds, path):
+def check_alarm(seconds):
     '''
     @summary    calls time.sleep()
 
@@ -28,7 +28,7 @@ def check_alarm(seconds, path):
         time_remaining -= 1
         if time_remaining <= -1:
             print('\n')
-            return call_notification(path)
+            return call_notification()
         else:
             sys.stdout.write(f'\rAlarm will go off in {time_remaining} seconds')
         time.sleep(1)

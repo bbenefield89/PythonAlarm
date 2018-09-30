@@ -10,9 +10,8 @@ if __name__ == '__main__':
         arguments = json.load(data)
 
     args_passed = len(sys.argv)
-
     if args_passed == 1:
-        pylarm('./')
+        pylarm()
 
     elif args_passed == 2:
         try:

@@ -4,7 +4,7 @@ import subprocess
 ##
 # call_notification
 #
-def call_notification(path):
+def call_notification():
     '''
     @summary    Run OS subprocesses
 
@@ -25,7 +25,7 @@ def call_notification(path):
     @return     {void}
     '''
     if platform.system() == 'Linux':
-        alarm_sound_path = path + '/sounds/alarm-clock-elapsed.oga'
+        alarm_sound_path = './sounds/alarm-clock-elapsed.oga'
         # calls the `notify-send` system call
         subprocess.run(['notify-send', 'Pylarm Alarm'])
         # plays .oga sound
@@ -36,7 +36,7 @@ def call_notification(path):
 
     elif platform.system() == 'Darwin':  # aka 'macOS/ OSX'
         # Use .aiff files for macOS. `afplay` system call does not support .oga
-        alarm_sound_path = path + '/sounds/alarm-clock-elapsed.aiff'
+        alarm_sound_path = './sounds/alarm-clock-elapsed.aiff'
 
         # Calls native macOS natification using applescript
         subprocess.run([

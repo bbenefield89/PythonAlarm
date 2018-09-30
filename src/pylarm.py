@@ -5,7 +5,7 @@ import time
 from helpers.does_user_agree import does_user_agree
 
 
-def pylarm(path):
+def pylarm():
     '''
     @summary    Function containing main logic for Pylarm
 
@@ -26,11 +26,11 @@ def pylarm(path):
     alarm_time = time.strptime(f'{local_time[1]} {local_time[2]} {local_time[0]} {alarm_time}am', '%m %d %Y %I:%M%p')
 
     if local_time < alarm_time:  # time is in the am, and has not passed
-        does_user_agree(alarm_time, path)
+        does_user_agree(alarm_time)
     else:  # set alarm to pm and try again
         alarm_time = alarm_time[0:3] + (alarm_time[3] + 12,) + alarm_time[4:]  # alternate way to add 12 hrs
         if local_time < alarm_time:  # alarm is in the pm and has not passed
-            does_user_agree(alarm_time, path)
-        else:  # alarm is in the pm and has passed
+            does_user_agree(alarm_time)
+        else:  # alarm is in the pm and has passed (next day)
             alarm_time = alarm_time[0:2] + (alarm_time[2] + 1,) + (alarm_time[3] - 12,) + alarm_time[4:]  # +1d, -12h
-            does_user_agree(alarm_time, path)
+            does_user_agree(alarm_time)
