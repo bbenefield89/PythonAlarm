@@ -26,15 +26,9 @@ def check_alarm(seconds, path):
 
     while not done:
         time_remaining -= 1
-
         if time_remaining <= -1:
             print('\n')
             return call_notification(path)
-        # this odd check is needed because without it whenever the time goes below a double digit
-        # the terminal will update with a trailing `s` character e.g. `Alarm will go off in 9 secondss`
-        elif time_remaining >= 10:
-            sys.stdout.write(f'\rAlarm will go off in {time_remaining} seconds')
         else:
-            sys.stdout.write(f'\rAlarm will go off in 0{time_remaining} seconds')
-
+            sys.stdout.write(f'\rAlarm will go off in {time_remaining} seconds')
         time.sleep(1)
