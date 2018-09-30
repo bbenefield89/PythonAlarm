@@ -3,6 +3,7 @@ import time
 
 from .call_notification import call_notification
 
+
 ##
 # check_alarm
 #
@@ -18,14 +19,14 @@ def check_alarm(seconds, path):
     @param      int {seconds}
     @return     {void}
     '''
-    
+
     # time.sleep(seconds)
     done = False
     time_remaining = int(seconds - time.time()) * 1
-    
+
     while not done:
         time_remaining -= 1
-        
+
         if time_remaining <= -1:
             print('\n')
             return call_notification(path)

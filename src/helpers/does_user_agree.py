@@ -22,6 +22,7 @@ def does_user_agree(mk_time, path):
     @return     {void}
     '''
 
+    mk_time = time.mktime(mk_time)
     print(f'\nThe alarm is set to go off at {time.ctime(mk_time)}\n')
 
     alarm_accepted = check_if_correct()
