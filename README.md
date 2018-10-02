@@ -36,6 +36,8 @@ This module is not distributed on any package manager and therefore must current
 **SSH**: `git clone git@github.com:bbenefield89/PythonAlarm.git`  
 **HTTPS**: `git clone https://github.com/bbenefield89/PythonAlarm.git`
 
+Once you have the copy, change into its directory and run the command. `pipenv shell`
+
 ## Usage
 After downloading this module you can choose to either run this manually everytime from the root directory: `$ <path>/PythonAlarm/src/main.py` or set up an alias in your `.bashrc` to quickly running this module from anywhere.
 
