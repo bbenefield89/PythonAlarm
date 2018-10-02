@@ -32,8 +32,9 @@ def call_notification(path):
         subprocess.run(['paplay', alarm_sound_path])
 
     elif platform.system() == 'Windows':
-        print('\n\nNEED SUPPORT FOR WINDOWS\n\n')
-
+        import winsound
+        alarm_sound_path = path + '/sounds/alarm-clock-elapsed.wav'
+        winsound.PlaySound(alarm_sound_path, winsound.SND_FILENAME)
     elif platform.system() == 'Darwin':  # aka 'macOS/ OSX'
         # Use .aiff files for macOS. `afplay` system call does not support .oga
         alarm_sound_path = path + '/sounds/alarm-clock-elapsed.aiff'
