@@ -24,13 +24,11 @@ def pylarm(path, given_time=None):
     
     if given_time is None:
         alarm_time   = input('\nWhat time: ')
-        meridiem = 'am'
     else:
-        alarm_time = given_time[:-2]
-        meridiem = given_time[-2:]
+        alarm_time = given_time
     curr_time    = time.localtime()
     # alarm will attempt to set this for AM
-    p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2]} {curr_time[0]} {alarm_time}{meridiem}', '%m %d %Y %I:%M%p')
+    p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2]} {curr_time[0]} {alarm_time}am', '%m %d %Y %I:%M%p')
     mk_time      = time.mktime(p_alarm_time)
 
     if int(mk_time * 1000) <= int(time.time() * 1000):

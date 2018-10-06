@@ -26,7 +26,11 @@ if __name__ == '__main__':
             if sys.argv[ 1 ] in arguments[ '2' ]:
                 print(arguments[ '2' ][ sys.argv[1] ][ 'info' ])
             else:
-                pylarm(src_path, given_time=sys.argv[1])
+                s = sys.argv[1].split(":")
+                if len(s) == 2 and s[0].isdigit() and s[1].isdigit():
+                    pylarm(src_path, given_time=sys.argv[1])
+                else:
+                    print_cli_options_error(sys.argv)
             
         except KeyError:
             print_cli_options_error(sys.argv)
