@@ -1,7 +1,6 @@
 import platform
 import subprocess
 import ctypes
-import winsound
 import sys
 
 ##
@@ -35,6 +34,7 @@ def call_notification(path):
         subprocess.run(['paplay', alarm_sound_path])
 
     elif platform.system() == 'Windows':
+        import winsound
         winsound.PlaySound(path + "/sounds/alarm-clock-elapsed.wav",winsound.SND_ASYNC|winsound.
         SND_LOOP)
         messageBox = ctypes.windll.user32.MessageBoxW
