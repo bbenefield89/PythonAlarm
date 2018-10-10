@@ -53,8 +53,8 @@ After starting up this module you will be prompted with a message `What time: `.
 My own inability to remember to set alarms for *ANYTHING*, also all the overcooked rice in my life.
 
 ## Contributors
-| [<img src="https://avatars0.githubusercontent.com/u/29239201?v=4" align="center" width=100><br><b>Brandon Benefield</b> ](https://github.com/bbenefield89) | [<img src="https://avatars3.githubusercontent.com/u/34255347?v=4" align="center" width=100><br><b>Nikhil Kamineni</b> ](https://github.com/nikhilkamineni) |
-|------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [<img src="https://avatars0.githubusercontent.com/u/29239201?v=4" align="center" width=100><br><b>Brandon Benefield</b> ](https://github.com/bbenefield89) | [<img src="https://avatars3.githubusercontent.com/u/34255347?v=4" align="center" width=100><br><b>Nikhil Kamineni</b> ](https://github.com/nikhilkamineni) | [<img src="https://avatars1.githubusercontent.com/u/1397991?v=4" align="center" width=100><br><b>Abi Franklin</b> ](https://github.com/abifranklin) |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 
 ## LICENSE
 MIT
