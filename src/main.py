@@ -15,15 +15,26 @@ if __name__ == '__main__':
 
 
     argv_len = len(sys.argv)
-
+    src_path = os.path.dirname(os.path.realpath(__file__))
+    
     if argv_len == 1:
-        src_path = os.path.dirname(os.path.realpath(__file__))
         pylarm(src_path)
 
     elif argv_len == 2:
         try:
-            print(arguments[ '2' ][ sys.argv[1] ][ 'info' ])
-
+            # passed argument is in cli_options.json
+            if sys.argv[ 1 ] in arguments[ '2' ]:
+                print(arguments[ '2' ][ sys.argv[1] ][ 'info' ])
+        
+            else:
+                s = sys.argv[1].split(":")
+              
+                if len(s) == 2 and s[0].isdigit() and s[1].isdigit():
+                    pylarm(src_path, given_time=sys.argv[1])
+                    
+                else:
+                    print_cli_options_error(sys.argv)
+                    
         except KeyError:
             print_cli_options_error(sys.argv)
 
