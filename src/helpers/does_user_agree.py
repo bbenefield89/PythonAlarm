@@ -21,11 +21,11 @@ def does_user_agree(seconds, path):
     @param      int {seconds}
     @return     {void}
     '''
-    
+
     alarm_accepted = check_if_correct()
 
     if alarm_accepted == 'y':
         print(f'\nThe alarm has been set and will go off at {time.ctime(seconds)}\n')
         check_alarm(seconds, path)
     elif alarm_accepted == 'n':
-        manually_set_alarm()
+        manually_set_alarm(seconds, path)

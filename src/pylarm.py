@@ -21,46 +21,35 @@ def pylarm(path, given_time=None):
     @param      {void}
     @return     {void}
     '''
-    
-    if given_time is None:
-        alarm_time   = input('\nWhat time: ')
-    else:
-        alarm_time = given_time
+
+    alarm_time   = input('\nWhat time? (HH:MM)[24Hrs format]: ')
+
     curr_time    = time.localtime()
-    # alarm will attempt to set this for AM
-    p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2]} {curr_time[0]} {alarm_time}am', '%m %d %Y %I:%M%p')
+    
+    p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2]} {curr_time[0]} {alarm_time}', '%m %d %Y %H:%M')
     mk_time      = time.mktime(p_alarm_time)
 
-    if int(mk_time * 1000) <= int(time.time() * 1000):
-        # use the same values but for PM
-        p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2]} {curr_time[0]} {alarm_time}pm', '%m %d %Y %I:%M%p')
+    if curr_time[3]<int(alarm_time[0]+alarm_time[1]):
+        p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2]} {curr_time[0]} {alarm_time}', '%m %d %Y %H:%M')
         mk_time      = time.mktime(p_alarm_time)
+        does_user_agree(mk_time, path)
 
-        if int(mk_time * 1000) <= int(time.time() * 1000):
-            '''
-            an error occurs at the end of each month where Pylarm attempts to set the day, curr_time[2], to a day
-            that doesnt exist in that month, e.g. January 32
-            this try/except will catch that error and increase the month by 1 and reset the day to 1
-            i.e. January 32 => February 1
-            '''
-            try:
-                # use the original values in the AM but for the next day: curr_time[2] + 1
-                p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2] + 1} {curr_time[0]} {alarm_time}pm', '%m %d %Y %I:%M%p')
-
-            except:
-                p_alarm_time = time.strptime(f'{curr_time[1] + 1} 01 {curr_time[0]} {alarm_time}pm', '%m %d %Y %I:%M%p')
-
-            
-            mk_time = time.mktime(p_alarm_time)
-
-            print(f'\nThe alarm is set to go off at {time.ctime(mk_time)}\n\n')
-
+    elif curr_time[3]==int(alarm_time[0]+alarm_time[1]):
+        if curr_time[4]<=int(alarm_time[3]+alarm_time[4]):
+            p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2]} {curr_time[0]} {alarm_time}', '%m %d %Y %H:%M')
+            mk_time      = time.mktime(p_alarm_time)
             does_user_agree(mk_time, path)
 
-        # if setting alarm to PM allowed
-        # check if user is okay with this time
-        # e.g. August 25 2018 4:40pm
         else:
+            p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2]+1} {curr_time[0]} {alarm_time}', '%m %d %Y %H:%M')
+            mk_time      = time.mktime(p_alarm_time)
             does_user_agree(mk_time, path)
+
+
+
+
     else:
+        p_alarm_time = time.strptime(f'{curr_time[1]} {curr_time[2]+1} {curr_time[0]} {alarm_time}', '%m %d %Y %H:%M')
+        mk_time = time.mktime(p_alarm_time)
+
         does_user_agree(mk_time, path)

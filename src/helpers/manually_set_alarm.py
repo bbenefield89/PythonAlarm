@@ -1,12 +1,12 @@
 import time
 
 from .check_alarm import check_alarm
-from .call_notification import call_notification
+
 
 ##
 # manually_set_alarm
 #
-def manually_set_alarm():
+def manually_set_alarm(mk_time, path):
     '''
     @summary    let the user manually set the alarm
 
@@ -21,14 +21,12 @@ def manually_set_alarm():
     @return     {void}
     '''
     # have user manually set their alarm
-    alarm_time = input('Manually set the alarm: MM DD YYYY HH:MM(am/pm)')
+    alarm_time = input('Manually set the alarm(MM DD YYYY HH:MM): ')
     # parse the alarm string into datetime tuple
-    p_alarm_time = time.strptime(alarm_time, '%m %d %Y %I:%M%p')
+    p_alarm_time = time.strptime(alarm_time, '%m %d %Y %H:%M')
     # parse datetime tuple into integer of seconds
     mk_time = time.mktime(p_alarm_time)
     # get time when alarm should go off
-    seconds_until_alarm = int(mk_time * 1) - int(time.time() * 1)
 
     print(f'\nThe alarm has been set and will go off at {time.ctime(mk_time)}\n')
-    check_alarm(seconds_until_alarm)
-    call_notification()
+    check_alarm(mk_time, path)
