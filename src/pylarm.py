@@ -1,11 +1,12 @@
 # py modules
 import time
+from datetime import datetime, timedelta
 
 # custom modules
 from helpers.does_user_agree import does_user_agree
 
 
-def pylarm(path, given_time=None):
+def pylarm(path, given_time=None, given_duration=None):
     '''
     @summary    Function containing main logic for Pylarm
 
@@ -21,9 +22,14 @@ def pylarm(path, given_time=None):
     @param      {void}
     @return     {void}
     '''
-    
+
     if given_time is None:
-        alarm_time   = input('\nWhat time: ')
+        if given_duration is None:
+            alarm_time   = input('\nWhat time: ')
+        else:
+            hours, minutes = map(int, given_duration.split(':'))
+            alarm_time = (datetime.now()
+                          + timedelta(hours=hours, minutes=minutes)).strftime('%I:%M')
     else:
         alarm_time = given_time
     curr_time    = time.localtime()
@@ -50,7 +56,7 @@ def pylarm(path, given_time=None):
             except:
                 p_alarm_time = time.strptime(f'{curr_time[1] + 1} 01 {curr_time[0]} {alarm_time}pm', '%m %d %Y %I:%M%p')
 
-            
+
             mk_time = time.mktime(p_alarm_time)
 
             print(f'\nThe alarm is set to go off at {time.ctime(mk_time)}\n\n')
