@@ -4,43 +4,40 @@ if __name__ == '__main__':
     import sys
 
     from helpers.print_cli_options_error import print_cli_options_error
+    from helpers.get_cli_options_file import get_cli_options_file
     from pylarm import pylarm
 
 
-    # opens and converts `cli_options.json` into a dictionary
     cli_options_file_path = os.path.dirname(os.path.realpath(__file__)) + '/cli_options.json'
-
-    with open(cli_options_file_path) as data:
-        arguments = json.load(data)
-
-
-    argv_len = len(sys.argv)
-    src_path = os.path.dirname(os.path.realpath(__file__))
+    possible_cli_arguments = get_cli_options_file(cli_options_file_path)
+    cli_arguments = sys.argv
+    number_of_cli_arguments = len(cli_arguments)
+    path_to_src_folder = os.path.dirname(os.path.realpath(__file__))
     
-    if argv_len == 1:
-        pylarm(src_path)
+    if number_of_cli_arguments == 1:
+        pylarm(path_to_src_folder)
 
-    elif argv_len == 2:
+    elif number_of_cli_arguments == 2:
         try:
             # passed argument is in cli_options.json
-            if sys.argv[ 1 ] in arguments[ '2' ]:
-                print(arguments[ '2' ][ sys.argv[1] ][ 'info' ])
+            if cli_arguments[1] in possible_cli_arguments['2']:
+                print(possible_cli_arguments['2'][cli_arguments[1]]['info'])
         
             else:
-                s = sys.argv[1].split(":")
+                alarm_time_given = cli_arguments[1].split(":")
               
-                if len(s) == 2 and s[0].isdigit() and s[1].isdigit():
-                    pylarm(src_path, given_time=sys.argv[1])
+                if len(alarm_time_given) == 2 and alarm_time_given[0].isdigit() and alarm_time_given[1].isdigit():
+                    pylarm(path_to_src_folder, given_time=cli_arguments[1])
                     
                 else:
-                    print_cli_options_error(sys.argv)
+                    print_cli_options_error(cli_arguments)
                     
         except KeyError:
-            print_cli_options_error(sys.argv)
+            print_cli_options_error(cli_arguments)
 
-    elif argv_len == 3:
+    elif number_of_cli_arguments == 3:
         try:
-            print(arguments[ '3' ][ sys.argv[2] ][ sys.argv[1] ][ 'info' ])
+            print(possible_cli_arguments['3'][cli_arguments[2]][cli_arguments[1]]['info'])
 
         except KeyError:
-            print_cli_options_error(sys.argv)
+            print_cli_options_error(cli_arguments)
