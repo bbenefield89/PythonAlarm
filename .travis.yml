@@ -4,5 +4,5 @@ python:
 install:
   - 'pip install pipenv'
   - 'pipenv install'
-after_success:
-  - 'python -m pytest'
+script:
+  - 'pytest'
