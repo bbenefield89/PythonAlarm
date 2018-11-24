@@ -3,7 +3,6 @@ python:
   - '3.6'
 install:
   - 'pip install pipenv'
-  - 'pipenv --python 3.6 shell'
-  - 'pipenv install pytest'
+  - 'pipenv install'
 after_success:
   - 'python -m pytest'
