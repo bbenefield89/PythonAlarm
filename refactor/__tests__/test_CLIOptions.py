@@ -6,7 +6,9 @@ sys.path.append(os.path.dirname(os.path.realpath(__file__)) + '/../pylarm')
 from utils.CLIOptions import CLIOptions
 
 
-path_to_cli_options = os.path.dirname(os.path.realpath(__file__)) + '/../pylarm/cli_options.json'
+path_to_cli_options = os.path.dirname(os.path.realpath(__file__))
+path_to_cli_options += '/../pylarm/cli_options.json'
+
 
 def test_CLIOptions_get_cli_arg_info():
     cli_options = CLIOptions(path_to_cli_options)

@@ -8,7 +8,6 @@ if __name__ == '__main__':
     cli_args = sys.argv
     cli_args_count = str(len(cli_args))
 
-
     if cli_args_count == '1':
         print('NO ARGUMENTS GIVEN')
 
