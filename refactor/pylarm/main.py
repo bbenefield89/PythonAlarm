@@ -1,7 +1,7 @@
 import sys
 
 from utils.CLIOptions import CLIOptions
-
+from utils.Alarm import Alarm
 
 if __name__ == '__main__':
     cli_options = CLIOptions('./cli_options.json')
@@ -9,7 +9,8 @@ if __name__ == '__main__':
     cli_args_count = str(len(cli_args))
 
     if cli_args_count == '1':
-        print('NO ARGUMENTS GIVEN')
+        pylarm = Alarm()
+        pylarm.set_alarm()
 
     elif cli_args_count == '2':
         arg = cli_args[1]
