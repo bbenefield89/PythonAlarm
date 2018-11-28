@@ -1,5 +1,6 @@
 from utils.LinuxAlarm import LinuxAlarm
-
+from utils.DarwinAlarm import DarwinAlarm
+from utils.WindowsAlarm import WindowsAlarm
 
 class PlatformAlarmFactory:
     @staticmethod
