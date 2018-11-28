@@ -1,0 +1,13 @@
+{
+  "2": {
+      "--help": "\nusage: pylarm [option]\n-a, --alarms     \tCheck pre-set alarms\n-n, --new-preset \tCreate new pre-set alarm\n",
+      "--alarms": "\n--alarms",
+      "--new-preset": "\n--new-preset"
+  },
+  "3": {
+      "help": {
+          "--alarms": "\n--alarms help",
+          "--new-preset": "\n--new-preset help"
+      }
+  }
+}
