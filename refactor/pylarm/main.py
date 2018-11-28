@@ -10,7 +10,10 @@ if __name__ == '__main__':
     cli_args_count = str(len(cli_args))
 
     if cli_args_count == '1':
-        pylarm = PlatformAlarmFactory.createNewPlatformAlarm('Linux')
+        users_operating_system = platform.system()
+        pylarm = PlatformAlarmFactory.createNewPlatformAlarm(
+            users_operating_system
+        )
         pylarm.set_alarm()
 
     elif cli_args_count == '2':
