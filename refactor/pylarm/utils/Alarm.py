@@ -1,16 +1,13 @@
 from datetime import datetime
-import os
-import subprocess
 import sys
 import time
 
-sys.path.append(os.path.dirname(os.path.realpath(__file__)) + '/../../')
-from definitions import ROOT_DIR
-
 
 class Alarm:
+    _cli_time_arg = None
+
     def __init__(self, cli_time_arg=''):
-        self.cli_time_arg = cli_time_arg
+        self._cli_time_arg = cli_time_arg
 
     def set_alarm(self):
         alarm_time_as_time_struct = self.__format_alarm_time()
@@ -20,7 +17,7 @@ class Alarm:
         curr_time_as_sec = self.__get_curr_time_as_sec()
         time_remaining = int((alarm_time_as_sec - curr_time_as_sec))
         self.__alarm_countdown(time_remaining)
-        self.__call_notification()
+        self._call_notification()
 
     def __alarm_countdown(self, time_remaining):
         while time_remaining > 0:
@@ -28,10 +25,13 @@ class Alarm:
             sys.stdout.write(f'\rTime remaining: {time_remaining}')
             time.sleep(1)
 
-    def __call_notification(self):
-        alarm_sound_path = ROOT_DIR + '/pylarm/sounds/alarm-clock-elapsed.oga'
-        subprocess.run(['notify-send', 'Pylarm Alarm'])
-        subprocess.run(['paplay', alarm_sound_path])
+    def _call_notification(self):
+        '''
+        Protected method that each sub-alarm class will need to create the body
+        of this method on their own. Each operating system Pylarm supports,
+        Linux, Darwin, Windows, has their own way of pushing notifications to
+        the desktop and playing audio files.
+        '''
 
     def __convert_alarm_time_as_time_struct_into_sec(
         self,
