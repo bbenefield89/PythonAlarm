@@ -1,7 +1,7 @@
 <div align="center">
 <h1>Pylarm</h1>
 
-<p>A CLI to set alarms</p>
+<p>A CLI for managing personal alarms</p>
 </div>
 
 <hr />
